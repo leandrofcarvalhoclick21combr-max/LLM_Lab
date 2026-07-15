@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# macOS
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+
+# Modelos e artefatos grandes
+models/base/*
+models/adapters/*
+models/published/*
+!models/base/.gitkeep
+!models/adapters/.gitkeep
+!models/published/.gitkeep
+
+# Datasets privados
+datasets/versions/*
+!datasets/versions/.gitkeep
+
+# Experimentos e relatórios gerados
+experiments/exp_*/
+reports/*
+!reports/.gitkeep
+
+# Logs
+*.log
+logs/
+
+# Segredos
+*.key
+*.pem
+secrets/

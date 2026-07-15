@@ -1,0 +1,32 @@
+project:
+  name: LLM_LAB
+  version: 0.1.0-alpha
+
+experiment:
+  id: auto
+  name: first_experiment
+
+model:
+  base: Qwen/Qwen3-0.6B
+  adapter_output: models/adapters
+
+dataset:
+  version: v1
+  train_file: datasets/versions/v1/train.jsonl
+  valid_file: datasets/versions/v1/valid.jsonl
+  test_file: datasets/versions/v1/test.jsonl
+
+training:
+  fine_tune_type: lora
+  iterations: 200
+  batch_size: 2
+  num_layers: 8
+  learning_rate: 1e-5
+  max_seq_length: 512
+  mask_prompt: true
+  save_every: 50
+
+evaluation:
+  enabled: true
+  max_tokens: 180
+  human_review_required: true

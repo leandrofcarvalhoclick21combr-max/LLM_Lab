@@ -1,0 +1,10 @@
+evaluation:
+  test_file: datasets/versions/v1/test.jsonl
+  max_tokens: 180
+  criteria:
+    - technical_correctness
+    - clarity
+    - objectivity
+    - portuguese_quality
+    - instruction_adherence
+    - hallucination

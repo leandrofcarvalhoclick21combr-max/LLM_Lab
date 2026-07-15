@@ -1,0 +1,37 @@
+# LLM Lab
+
+**Versão:** 0.1.0-alpha  
+**Status:** Alpha  
+**Criado em:** 2026-07-14 23:30:58
+
+## Missão
+
+O LLM Lab é uma plataforma de engenharia para criar, treinar, avaliar, versionar e publicar modelos de linguagem especializados para diferentes domínios empresariais.
+
+## Objetivo inicial
+
+A primeira fase transforma experimentos manuais em um processo reproduzível:
+
+1. registrar datasets;
+2. registrar configurações;
+3. executar fine-tuning;
+4. avaliar modelo-base e modelo ajustado;
+5. gerar relatórios;
+6. manter histórico de experimentos.
+
+## Estrutura
+
+- `configs/`: configurações de treinamento e avaliação;
+- `datasets/`: templates, versões e registro de datasets;
+- `models/`: modelos-base, adaptadores e modelos publicados;
+- `experiments/`: histórico de experimentos reproduzíveis;
+- `benchmarks/`: conjuntos e rotinas de avaliação;
+- `reports/`: relatórios consolidados;
+- `pipelines/`: orquestração de treinamento e avaliação;
+- `apps/`: futuras interfaces CLI, API e web;
+- `deployment/`: empacotamento e implantação;
+- `tests/`: testes automatizados.
+
+## Primeiro componente
+
+O primeiro componente oficial será o **Experiment Runner**, responsável por ler uma configuração, criar um experimento, executar as etapas e registrar os resultados.
