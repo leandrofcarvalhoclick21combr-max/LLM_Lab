@@ -1,6 +1,6 @@
 latest: v1
 datasets:
   - version: v1
-    status: needs_human_review
+    status: approved
     path: datasets/versions/v1/dataset.yaml
     source: synthetic_reconstruction
