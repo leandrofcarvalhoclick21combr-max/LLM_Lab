@@ -1,6 +1,7 @@
 # Python
 __pycache__/
 *.py[cod]
+*.egg-info/
 .venv/
 venv/
 .env
@@ -24,8 +25,9 @@ models/published/*
 datasets/versions/*
 !datasets/versions/.gitkeep
 
-# Experimentos e relatórios gerados
-experiments/exp_*/
+# Artefatos pesados de experimentos; manifestos, resultados e relatórios são versionados
+experiments/exp_*/artifacts/
+experiments/exp_*/logs/
 reports/*
 !reports/.gitkeep
 

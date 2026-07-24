@@ -35,3 +35,20 @@ A primeira fase transforma experimentos manuais em um processo reproduzível:
 ## Primeiro componente
 
 O primeiro componente oficial será o **Experiment Runner**, responsável por ler uma configuração, criar um experimento, executar as etapas e registrar os resultados.
+
+## Desenvolvimento local
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[dev]'
+pytest
+```
+
+Antes de registrar um experimento, crie os arquivos indicados em
+`configs/default.yaml` e valide o fluxo:
+
+```bash
+llm-lab validate configs/default.yaml
+llm-lab run configs/default.yaml --dry-run
+```

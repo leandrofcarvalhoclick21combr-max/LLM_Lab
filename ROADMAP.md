@@ -4,15 +4,15 @@
 
 - [x] Criar estrutura inicial do projeto
 - [ ] Definir esquema de configuração de experimentos
-- [ ] Criar registro central de experimentos
-- [ ] Criar Experiment Runner mínimo
+- [x] Criar registro central de experimentos
+- [x] Criar Experiment Runner mínimo
 - [ ] Importar o experimento validado do projeto LLM
 - [ ] Automatizar avaliação comparativa
 
 ## Fase 2 — Engenharia
 
 - [ ] Versionamento formal de datasets
-- [ ] Validação automática de JSONL
+- [x] Validação automática de JSONL
 - [ ] Histórico de métricas
 - [ ] Comparação entre experimentos
 - [ ] Seleção da melhor versão
