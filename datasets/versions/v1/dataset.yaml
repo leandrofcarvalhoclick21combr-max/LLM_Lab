@@ -1,5 +1,5 @@
 version: v1
-status: needs_human_review
+status: approved
 language: pt-BR
 domain: artificial_intelligence_and_llms
 source: synthetic_reconstruction
@@ -23,8 +23,8 @@ splits:
     sha256: 48bedd2ef813b848d025b1ce10bf39815f4902d9108c472c64c87adeb74c4967
 review:
   human_review_required: true
-  approved_by: null
-  approved_at: null
+  approved_by: leandrofcarvalhoclick21combr-max
+  approved_at: 2026-07-24T20:31:57-03:00
 notes:
   - Os conceitos são exclusivos entre os splits.
   - O dataset não deve ser usado em treinamento antes da revisão humana.
