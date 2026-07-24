@@ -24,6 +24,9 @@ models/published/*
 # Datasets privados
 datasets/versions/*
 !datasets/versions/.gitkeep
+!datasets/versions/*/
+datasets/versions/*/*.jsonl
+!datasets/versions/*/dataset.yaml
 
 # Artefatos pesados de experimentos; manifestos, resultados e relatórios são versionados
 experiments/exp_*/artifacts/
