@@ -1,0 +1,30 @@
+version: v1
+status: approved
+language: pt-BR
+domain: artificial_intelligence_and_llms
+source: synthetic_reconstruction
+generator: scripts/build_dataset_v1.py
+created_on: 2026-07-24
+splits:
+  train:
+    file: train.jsonl
+    records: 104
+    concepts: 52
+    sha256: 86d0e5dab5820694144edacdd45f964f0aeefae29a3794b8ba8fc8a181c72d0e
+  valid:
+    file: valid.jsonl
+    records: 20
+    concepts: 10
+    sha256: 4db100edfb7fa910b6833780db2b830f3538ca586c1e013cd4132f816d786a26
+  test:
+    file: test.jsonl
+    records: 10
+    concepts: 5
+    sha256: 48bedd2ef813b848d025b1ce10bf39815f4902d9108c472c64c87adeb74c4967
+review:
+  human_review_required: true
+  approved_by: leandrofcarvalhoclick21combr-max
+  approved_at: 2026-07-24T20:31:57-03:00
+notes:
+  - Os conceitos são exclusivos entre os splits.
+  - O dataset não deve ser usado em treinamento antes da revisão humana.

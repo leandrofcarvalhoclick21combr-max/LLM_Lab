@@ -1,2 +1,6 @@
-latest: null
-datasets: []
+latest: v1
+datasets:
+  - version: v1
+    status: approved
+    path: datasets/versions/v1/dataset.yaml
+    source: synthetic_reconstruction
