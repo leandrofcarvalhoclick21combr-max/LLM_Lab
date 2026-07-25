@@ -1,6 +1,6 @@
 id: exp_0001
 name: first_experiment
-status: created
+status: completed
 created_at: '2026-07-25T21:18:55.929867+00:00'
 model: Qwen/Qwen3-0.6B
 config_source: configs/default.yaml
@@ -39,3 +39,22 @@ configuration:
     enabled: true
     max_tokens: 180
     human_review_required: true
+results:
+  training:
+    final_train_loss: 0.346
+    final_validation_loss: 1.411
+    trained_tokens: 17975
+    peak_memory_gb: 1.893
+  test:
+    examples: 10
+    base_model:
+      loss: 3.580
+      perplexity: 35.863
+    adapter:
+      loss: 1.399
+      perplexity: 4.050
+    relative_reduction:
+      loss_percent: 60.9
+      perplexity_percent: 88.7
+  human_evaluation:
+    status: pending
