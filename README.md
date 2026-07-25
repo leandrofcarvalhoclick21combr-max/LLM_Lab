@@ -52,3 +52,18 @@ Antes de registrar um experimento, crie os arquivos indicados em
 llm-lab validate configs/default.yaml
 llm-lab run configs/default.yaml --dry-run
 ```
+
+## Avaliação qualitativa cega
+
+Depois de treinar um adapter, gere respostas A/B embaralhadas com:
+
+```bash
+python -m pip install -e '.[dev,train]'
+llm-lab evaluate-qualitative exp_0001
+```
+
+O comando usa os prompts de teste registrados no experimento e cria:
+
+- `experiments/exp_0001/results/qualitative/review.md`: formulário para avaliação;
+- `experiments/exp_0001/results/qualitative/answer_key.json`: identificação dos modelos,
+  que só deve ser aberta depois de preencher o formulário.
