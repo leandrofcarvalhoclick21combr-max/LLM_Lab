@@ -1,0 +1,41 @@
+id: exp_0001
+name: first_experiment
+status: created
+created_at: '2026-07-25T21:18:55.929867+00:00'
+model: Qwen/Qwen3-0.6B
+config_source: configs/default.yaml
+datasets:
+- path: datasets/versions/v1/train.jsonl
+  records: 104
+- path: datasets/versions/v1/valid.jsonl
+  records: 20
+- path: datasets/versions/v1/test.jsonl
+  records: 10
+configuration:
+  project:
+    name: LLM_LAB
+    version: 0.1.0-alpha
+  experiment:
+    id: auto
+    name: first_experiment
+  model:
+    base: Qwen/Qwen3-0.6B
+    adapter_output: models/adapters
+  dataset:
+    version: v1
+    train_file: datasets/versions/v1/train.jsonl
+    valid_file: datasets/versions/v1/valid.jsonl
+    test_file: datasets/versions/v1/test.jsonl
+  training:
+    fine_tune_type: lora
+    iterations: 200
+    batch_size: 2
+    num_layers: 8
+    learning_rate: 1.0e-05
+    max_seq_length: 512
+    mask_prompt: true
+    save_every: 50
+  evaluation:
+    enabled: true
+    max_tokens: 180
+    human_review_required: true
