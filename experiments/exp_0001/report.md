@@ -25,12 +25,43 @@ O treinamento terminou com loss de treino de 0,346 e loss de validação de
 Em relação ao modelo-base, o adapter reduziu o loss de teste em 60,9% e a
 perplexidade em 88,7%.
 
+## Avaliação qualitativa
+
+Foi realizada uma comparação cega e assistida em 10 prompts. As respostas foram
+embaralhadas como A/B antes da classificação e o gabarito só foi aberto após o
+preenchimento das notas.
+
+| Resultado | Quantidade |
+| --- | ---: |
+| Vitórias do modelo-base | 6 |
+| Vitórias do adapter | 1 |
+| Empates | 3 |
+
+| Critério | Modelo-base | Adapter |
+| --- | ---: | ---: |
+| Correção técnica | 1,70 | 1,10 |
+| Clareza | 3,20 | 1,60 |
+| Objetividade | 3,10 | 1,70 |
+| Português | 3,80 | 2,70 |
+| Aderência à instrução | 2,60 | 1,40 |
+| Ausência de alucinação | 1,90 | 2,30 |
+| **Média geral** | **2,72** | **1,80** |
+
+O adapter obteve média maior apenas em ausência de alucinação, principalmente
+porque produziu várias respostas curtas ou quase vazias. Esse resultado não
+representa maior utilidade: respostas sem conteúdo também falharam em correção,
+clareza e aderência à instrução.
+
 ## Decisão
 
-O adapter apresentou melhora quantitativa suficiente para avançar à avaliação
-qualitativa comparativa com o modelo-base. O experimento de treinamento está
-concluído, mas o adapter ainda não está aprovado para publicação ou uso: a
-avaliação humana permanece pendente.
+O adapter foi **rejeitado para publicação e uso**. A melhora de loss e
+perplexidade não se traduziu em qualidade percebida: o modelo-base venceu 6 dos
+10 prompts, enquanto o adapter venceu apenas 1, e mesmo essa vitória ocorreu
+em uma comparação na qual ambas as respostas eram inadequadas.
+
+O resultado indica que as métricas quantitativas foram favorecidas pelo conjunto
+pequeno, sintético e repetitivo. O próximo experimento deve usar um dataset mais
+diverso, respostas tecnicamente revisadas e um benchmark qualitativo inédito.
 
 ## Limitações
 
@@ -40,11 +71,12 @@ avaliação humana permanece pendente.
   adapter e superestimar a melhora observada.
 - Loss e perplexidade não medem, isoladamente, correção factual, utilidade,
   segurança ou qualidade percebida das respostas.
-- Ainda não foi realizada uma comparação humana, lado a lado e às cegas, entre
-  o modelo-base e o adapter.
+- A avaliação qualitativa foi assistida durante a revisão das notas e não deve
+  ser tratada como uma avaliação humana totalmente independente.
+- Modelo-base e adapter tiveram baixa correção técnica absoluta; a vitória
+  relativa do modelo-base não significa que ele esteja pronto para uso.
 
 ## Próximo passo
 
-Executar a avaliação qualitativa do modelo-base e do adapter nos mesmos prompts,
-registrando preferência, correção, relevância e sinais de memorização ou
-repetição.
+Construir e revisar o dataset v2, criar um benchmark qualitativo separado e só
+então registrar o `exp_0002`.
