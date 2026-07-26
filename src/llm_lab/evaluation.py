@@ -3,6 +3,7 @@ from __future__ import annotations
 import gc
 import json
 import random
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable
@@ -108,12 +109,9 @@ def _generate_all(
 ) -> list[str]:
     responses: list[str] = []
     for index, prompt in enumerate(prompts, start=1):
-        messages = []
-        if prompt.system:
-            messages.append({"role": "system", "content": prompt.system})
-        messages.append({"role": "user", "content": prompt.user})
+        messages = build_messages(prompt)
         print(f"  prompt {index}/{len(prompts)}")
-        responses.append(generator(model, adapter_path, messages, max_tokens).strip())
+        responses.append(clean_response(generator(model, adapter_path, messages, max_tokens)))
     return responses
 
 
@@ -135,24 +133,45 @@ def mlx_generate_all(
     try:
         responses = []
         for index, item in enumerate(prompts, start=1):
-            messages = []
-            if item.system:
-                messages.append({"role": "system", "content": item.system})
-            messages.append({"role": "user", "content": item.user})
+            messages = build_messages(item)
             prompt = tokenizer.apply_chat_template(
-                messages, tokenize=False, add_generation_prompt=True
+                messages,
+                tokenize=False,
+                add_generation_prompt=True,
+                enable_thinking=False,
             )
             print(f"  prompt {index}/{len(prompts)}")
             response = generate(
                 model, tokenizer, prompt=prompt, max_tokens=max_tokens, verbose=False
             )
-            responses.append(response.strip())
+            responses.append(clean_response(response))
         return responses
     finally:
         del model
         del tokenizer
         mx.clear_cache()
         gc.collect()
+
+
+def build_messages(prompt: EvaluationPrompt) -> list[dict[str, str]]:
+    instruction = (
+        "Responda somente em português do Brasil. Apresente apenas a resposta final, "
+        "sem expor raciocínio interno, planejamento ou tags <think>. Termine a resposta "
+        "com uma frase completa."
+    )
+    system = f"{prompt.system.strip()}\n\n{instruction}" if prompt.system else instruction
+    return [
+        {"role": "system", "content": system},
+        {"role": "user", "content": prompt.user},
+    ]
+
+
+def clean_response(response: str) -> str:
+    cleaned = re.sub(r"<think>.*?</think>", "", response, flags=re.DOTALL | re.IGNORECASE)
+    cleaned = cleaned.replace("<think>", "").replace("</think>", "").strip()
+    if not cleaned:
+        raise QualitativeEvaluationError("O modelo gerou uma resposta final vazia.")
+    return cleaned
 
 
 def blind_responses(

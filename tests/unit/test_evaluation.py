@@ -3,6 +3,8 @@ import json
 from llm_lab.evaluation import (
     EvaluationPrompt,
     blind_responses,
+    build_messages,
+    clean_response,
     load_prompts,
     render_answer_key,
     render_review,
@@ -55,3 +57,18 @@ def test_review_hides_models_and_answer_key_reveals_them():
         "base",
         "adapter",
     }
+
+
+def test_messages_force_final_answer_in_portuguese_without_thinking():
+    messages = build_messages(EvaluationPrompt("Seja preciso.", "Explique LoRA."))
+
+    assert messages[0]["role"] == "system"
+    assert "português do Brasil" in messages[0]["content"]
+    assert "sem expor raciocínio interno" in messages[0]["content"]
+    assert messages[1] == {"role": "user", "content": "Explique LoRA."}
+
+
+def test_clean_response_removes_internal_thinking():
+    response = "<think>Internal reasoning in English.</think>\n\nResposta final em português."
+
+    assert clean_response(response) == "Resposta final em português."

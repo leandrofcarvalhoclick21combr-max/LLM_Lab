@@ -57,4 +57,37 @@ results:
       loss_percent: 60.9
       perplexity_percent: 88.7
   human_evaluation:
-    status: pending
+    status: completed
+    completed_on: '2026-07-25'
+    method: blind_pairwise_assisted
+    prompts: 10
+    wins:
+      base_model: 6
+      adapter: 1
+      ties: 3
+    average_score:
+      base_model: 2.72
+      adapter: 1.80
+    average_by_criterion:
+      technical_correctness:
+        base_model: 1.70
+        adapter: 1.10
+      clarity:
+        base_model: 3.20
+        adapter: 1.60
+      objectivity:
+        base_model: 3.10
+        adapter: 1.70
+      portuguese_quality:
+        base_model: 3.80
+        adapter: 2.70
+      instruction_adherence:
+        base_model: 2.60
+        adapter: 1.40
+      absence_of_hallucination:
+        base_model: 1.90
+        adapter: 2.30
+    decision: rejected_for_publication
+    artifacts:
+      review: experiments/exp_0001/results/qualitative/review.md
+      answer_key: experiments/exp_0001/results/qualitative/answer_key.json

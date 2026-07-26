@@ -1,0 +1,38 @@
+experiment: exp_0001
+status: completed
+completed_on: '2026-07-25'
+method: blind_pairwise_assisted
+scale: 1_to_5
+prompts: 10
+wins:
+  base_model: 6
+  adapter: 1
+  ties: 3
+average_score:
+  base_model: 2.72
+  adapter: 1.80
+average_by_criterion:
+  technical_correctness:
+    base_model: 1.70
+    adapter: 1.10
+  clarity:
+    base_model: 3.20
+    adapter: 1.60
+  objectivity:
+    base_model: 3.10
+    adapter: 1.70
+  portuguese_quality:
+    base_model: 3.80
+    adapter: 2.70
+  instruction_adherence:
+    base_model: 2.60
+    adapter: 1.40
+  absence_of_hallucination:
+    base_model: 1.90
+    adapter: 2.30
+decision: rejected_for_publication
+notes:
+  - O modelo-base venceu 6 prompts; o adapter venceu 1; houve 3 empates.
+  - A avaliação foi cega até a conclusão das notas e assistida na revisão final.
+  - A vantagem do adapter em ausência de alucinação decorreu de respostas curtas ou vazias.
+  - Nenhum dos modelos apresentou correção técnica suficiente para uso.

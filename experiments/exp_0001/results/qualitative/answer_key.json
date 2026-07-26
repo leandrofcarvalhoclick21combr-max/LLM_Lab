@@ -1,0 +1,56 @@
+{
+  "warning": "Abra somente depois de concluir review.md.",
+  "seed": 42,
+  "assignments": [
+    {
+      "prompt_id": 1,
+      "A": "adapter",
+      "B": "base"
+    },
+    {
+      "prompt_id": 2,
+      "A": "base",
+      "B": "adapter"
+    },
+    {
+      "prompt_id": 3,
+      "A": "base",
+      "B": "adapter"
+    },
+    {
+      "prompt_id": 4,
+      "A": "adapter",
+      "B": "base"
+    },
+    {
+      "prompt_id": 5,
+      "A": "base",
+      "B": "adapter"
+    },
+    {
+      "prompt_id": 6,
+      "A": "base",
+      "B": "adapter"
+    },
+    {
+      "prompt_id": 7,
+      "A": "base",
+      "B": "adapter"
+    },
+    {
+      "prompt_id": 8,
+      "A": "base",
+      "B": "adapter"
+    },
+    {
+      "prompt_id": 9,
+      "A": "adapter",
+      "B": "base"
+    },
+    {
+      "prompt_id": 10,
+      "A": "base",
+      "B": "adapter"
+    }
+  ]
+}
