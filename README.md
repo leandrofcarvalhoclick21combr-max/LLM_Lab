@@ -32,6 +32,9 @@ A primeira fase transforma experimentos manuais em um processo reproduzível:
 - `deployment/`: empacotamento e implantação;
 - `tests/`: testes automatizados.
 
+O histórico técnico e as decisões do projeto estão registrados em
+[`docs/PROJECT_JOURNAL.md`](docs/PROJECT_JOURNAL.md).
+
 ## Primeiro componente
 
 O primeiro componente oficial será o **Experiment Runner**, responsável por ler uma configuração, criar um experimento, executar as etapas e registrar os resultados.
